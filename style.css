@@ -1,0 +1,184 @@
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { color:#333; line-height:1.6; background:#f0f2f5; }
+
+/* Cabeçalho */
+header {
+  background:#003366; color:white; display:flex; justify-content:space-between; align-items:center;
+  padding:1rem 2rem; position:sticky; top:0; z-index:100;
+}
+header .logo { font-size:1.5rem; font-weight:bold; }
+header nav a { color:white; margin-left:1rem; text-decoration:none; transition: color 0.3s; }
+header nav a:hover { color:#ff6600; }
+
+/* Hero */
+.hero {
+  position:relative;
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581091012184-5c0b2c4f9f96') no-repeat center center/cover;
+  color:white; text-align:center; padding:6rem 2rem; min-height:80vh; display:flex; align-items:center; justify-content:center; flex-direction:column;
+}
+.hero-content { position:relative; z-index:2; }
+.hero h1 { font-size:3rem; line-height:1.2; margin-bottom:1rem; text-shadow:2px 2px 6px rgba(0,0,0,0.6); }
+.hero p { font-size:1.2rem; margin-bottom:1.5rem; }
+.hero .btn { display:inline-block; padding:0.8rem 1.5rem; background:#ff6600; color:white; border-radius:5px; text-decoration:none; font-weight:bold; transition: background 0.3s, transform 0.2s; }
+.hero .btn:hover { background:#e65500; transform:scale(1.05); }
+
+/* Planos */
+.planos { padding:3rem 2rem; text-align:center; }
+.cards { display:flex; justify-content:center; gap:1.5rem; margin-top:2rem; flex-wrap:wrap; }
+
+/* Cards com fade-in e brilho */
+.card {
+  background:#f4f4f4; padding:1.5rem; border-radius:15px; width:250px; position:relative; overflow:hidden;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out, background 0.3s;
+  box-shadow:0 6px 20px rgba(0,0,0,0.1); opacity:0; transform:translateY(30px);
+}
+.card::before {
+  content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.25) 100%);
+  transform:rotate(45deg) translateX(-100%); transition: transform 0.7s ease-in-out;
+}
+.card:hover::before { transform:rotate(45deg) translateX(100%); }
+.card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
+.card .icon { margin-bottom:1rem; font-size:48px; display:flex; justify-content:center; align-items:center; }
+.card.destaque { background:#ff6600; color:white; box-shadow:0 10px 25px rgba(0,0,0,0.25); }
+
+/* Delay cascata cards */
+.card:nth-child(1){ transition-delay:0.1s; }
+.card:nth-child(2){ transition-delay:0.3s; }
+.card:nth-child(3){ transition-delay:0.5s; }
+
+/* Benefícios */
+.beneficios { background:#f9f9f9; padding:3rem 2rem; text-align:center; }
+.beneficios-grid { display:flex; justify-content:center; gap:2rem; margin-top:2rem; flex-wrap:wrap; }
+.beneficio {
+  max-width:200px; text-align:center; transition: transform 0.8s ease-out, box-shadow 0.8s ease-out, opacity 0.8s ease-out;
+  padding:1rem; border-radius:10px; background:white; opacity:0; transform:translateY(30px);
+}
+.beneficio:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.beneficio img { width:100px; height:100px; object-fit:contain; margin-bottom:0.5rem; }
+
+/* Delay cascata benefícios */
+.beneficio:nth-child(1){ transition-delay:0.2s; }
+.beneficio:nth-child(2){ transition-delay:0.4s; }
+.beneficio:nth-child(3){ transition-delay:0.6s; }
+.beneficio:nth-child(4){ transition-delay:0.8s; }
+
+/* Contato */
+.contato { padding:3rem 2rem; }
+.contato-grid { display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; }
+.contato-img, .contato-form { opacity:0; transform:translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.contato-img img { max-width:400px; border-radius:10px; }
+.contato-form { max-width:400px; }
+.contato form { display:flex; flex-direction:column; }
+.contato input, .contato textarea { margin:0.5rem 0; padding:0.8rem; border:1px solid #ccc; border-radius:5px; transition:border-color 0.3s, box-shadow 0.3s; }
+.contato input:focus, .contato textarea:focus { border-color:#ff6600; box-shadow:0 0 5px rgba(255,102,0,0.5); outline:none; }
+.contato button { margin-top:1rem; padding:0.8rem; background:#003366; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition: background 0.3s, transform 0.2s; }
+.contato button:hover { background:#ff6600; transform:scale(1.05); }
+
+/* Rodapé */
+footer { background:#003366; color:white; text-align:center; padding:2rem 1rem; margin-top:2rem; box-shadow:0 -4px 10px rgba(0,0,0,0.1); }
+footer p { margin:0.5rem 0; }
+footer .social-button { display:inline-block; padding:8px 15px; margin:5px; color:white; font-weight:bold; text-decoration:none; border-radius:8px; transition: transform 0.2s, box-shadow 0.3s; }
+footer .social-button.linkedin{ background-color:#0077B5; }
+footer .social-button.github{ background-color:#000; }
+footer .social-button:hover{ transform:scale(1.05); box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+footer .social-button i{ margin-right:6px; }
+
+/* Animação Fade-In */
+.fade-in{ opacity:1 !important; transform:translateY(0) !important; }
+
+/* Responsividade */
+@media(max-width:768px){ .cards,.beneficios-grid{ flex-direction:column; align-items:center; } .contato-grid{ flex-direction:column; } }
+@media(max-width:480px){ .hero h1{ font-size:1.8rem; } .cards,.beneficios-grid{ gap:1rem; } .contato-img img{ max-width:300px; } }
+
+/* Benefícios com efeito hover */
+.beneficio {
+  max-width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  padding: 1rem;
+  border-radius: 10px;
+  background: white;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.beneficio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: #f0f8ff; /* leve brilho azul */
+}
+
+/* Imagem e texto dentro do benefício */
+.beneficio img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+/* Botões do hero e formulário */
+.hero .btn,
+.contato button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero .btn {
+  background: #ff6600;
+  color: white;
+}
+
+.hero .btn:hover {
+  background: #e65500;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,102,0,0.5); /* efeito de brilho */
+}
+
+/* Botão do formulário */
+.contato button {
+  background: #003366;
+  color: white;
+  border: none;
+}
+
+.contato button:hover {
+  background: #ff6600;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,102,0,0.5); /* efeito de brilho */
+}
+
+/* Animação pulse para ícones dos benefícios */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.beneficio img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.beneficio:hover img {
+  animation: pulse 1s infinite; /* animação pulse ao passar o mouse */
+}
