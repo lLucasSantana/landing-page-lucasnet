@@ -39,22 +39,6 @@ landing-page-lucasnet/
 └── README.md # Este arquivo
 
 
----
-
-## 🚀 Como visualizar localmente
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/llucassantana/landing-page-lucasnet.git
-
-
-Entre na pasta do projeto:
-
-cd landing-page-lucasnet
-
-
-Abra o arquivo index.html no navegador de sua preferência.
-
 ✨ Funcionalidades
 
 Layout moderno e responsivo
